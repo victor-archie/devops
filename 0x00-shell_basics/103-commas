@@ -1,0 +1,2 @@
+#!/bin/bash
+ -A | awk 'BEGIN{OFS=",";printf ".,"} $1 == "." || $1 == ".." {printf "%s", $0; next} {printf "%s", $0} /\/$/ {printf "%s/", $0} END{printf "\n"}' | sort -k 1.1,1.1n -k 1,1 | paste -sd ""
